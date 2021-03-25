@@ -8,17 +8,18 @@ namespace cv07
 {
     public abstract class Object2D : I2D, IComparable
     {
+        // https://docs.microsoft.com/cs-cz/dotnet/api/system.icomparable.compareto?view=net-5.0
         public int CompareTo(object obj)
         {
-            if (((Object2D)obj).Area() > Area())
-            {
-                return 0;
-            }
+            if (obj == null)
+                return 1;
+
+            Object2D obj2d = obj as Object2D;
+            if (obj2d != null)
+                return Area().CompareTo(obj2d.Area());
 
             else
-            {
-                return 1;
-            }
+                throw new ArgumentException("Objects not comparable.");
         }
 
         public abstract double Area();

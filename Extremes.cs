@@ -12,13 +12,17 @@ namespace cv07
         {
             T maximum = listObjects[0];
 
-            for (int i = 1; i < listObjects.Length; i++)
+            foreach (T obj in listObjects)
+                if (obj.CompareTo(maximum) > 0)
+                    maximum = obj;
+            
+            /*for (int i = 1; i < listObjects.Length; i++)
             {
                 if (listObjects[i].CompareTo(maximum) > 0)
                 {
                     maximum = listObjects[i];
                 }
-            }
+            }*/
 
             return maximum;
         }
@@ -27,13 +31,17 @@ namespace cv07
         {
             T minimum = listObjects[0];
 
-            for (int i = 1; i < listObjects.Length; i++)
+            foreach (T obj in listObjects)
+                if (obj.CompareTo(minimum) < 0)
+                    minimum = obj;
+
+            /*for (int i = 1; i < listObjects.Length; i++)
             {
                 if (listObjects[i].CompareTo(minimum) < 0)
                 {
                     minimum = listObjects[i];
                 }
-            }
+            }*/
 
             return minimum;
         }

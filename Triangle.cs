@@ -20,6 +20,9 @@ namespace cv07
                 EdgeB = b;
                 EdgeC = c;
             }
+
+            else
+                throw new ArgumentException("Not a triangle."); ;
         }
 
         public double EdgeA { get => edgeA; set => edgeA = value; }
